@@ -20,7 +20,6 @@ extension AVAsset {
     /// - Returns: Object that contains all frames and related information of the video.
     public func getAllFrames(from startTime: Double = 0, to endTime: Double? = nil, framesPerSecond: Int = 15) -> VideoFrames? {
         let intervalToGetFrame = (1.0 / Double.init(framesPerSecond))
-        
         let frameSeconds = stride(from: startTime, to: endTime ?? self.duration.seconds, by: intervalToGetFrame)
         
         let frames = frameSeconds.compactMap { (second) -> UINSImage? in
